@@ -47,6 +47,10 @@
 .header>img{
   height: 26px;
   width: 31px;
+
+}
+.header>img:hover{
+  cursor: pointer;
 }
 .header>h2{
   margin-left: 6px;
