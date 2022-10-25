@@ -1,24 +1,26 @@
 import { useState } from "react";
 import memesData from "./memesData";
 export default function Main(){
-    const [num, setNum] = useState(0);
+    const [imageSource, setImageSource] = useState();
+    function memeGenerator(){
+        setImageSource(imageIndex())
+        
+    }
+    function imageIndex(){
+        const randomIndex =  Math.floor(Math.random()*memesData.length);
+        return memesData[randomIndex].source
+        
+    }
     
-    function plus(){ 
-        return setNum(num+1)
-    }
-    function minus(){   
-        return setNum(num-1)
-    }
     return (
         <div>
             
                 <input type="text" className="top" placeholder="Shut up"></input>
                 <input type="text" className="bottom" placeholder="and take my money"></input>
                 <br/>
-                <button onClick={plus} type="submit" className="submitButton">+</button>
-                <p>{num}</p>
-                <button onClick={minus} type="submit" className="submitButton">-</button>
-                
+                <button onClick={memeGenerator} type="submit" className="submitButton">Generate a new Meme image</button>
+                <br/>
+                <img className="meme" src={imageSource}/>
             
         </div>
     )
